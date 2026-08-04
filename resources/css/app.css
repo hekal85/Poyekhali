@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+/* خطوط: Cairo لعناوين عربي/إنجليزي، IBM Plex Sans Arabic + IBM Plex Sans للنصوص */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+@theme {
+    /* -- ألوان الهوية -- */
+    --color-ink: #0f2a3d;        /* كحلي غامق - هيدر / نصوص رئيسية */
+    --color-ink-light: #1c3d52;
+    --color-teal: #145c56;       /* أخضر مزرق - أزرار وروابط أساسية */
+    --color-teal-light: #1c7c73;
+    --color-brass: #b8863b;      /* ذهبي نحاسي - لمسة الختم الرسمي */
+    --color-brass-light: #d4a75c;
+    --color-paper: #f2f1ec;      /* خلفية عامة - ورقي بارد مش كريمي */
+    --color-paper-dark: #e8e6dd;
+    --color-alert: #a13d3d;
+
+    --font-display: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+    --font-body: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+}
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+/* ---------------------------------------------------
+   عنصر التوقيع البصري: ختم التأشيرة (visa stamp)
+   دائرة مسننة الحواف بتوحي بختم رسمي على الجواز
+--------------------------------------------------- */
+.visa-stamp {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visa-stamp::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 2px dashed color-mix(in srgb, var(--color-brass) 70%, transparent);
+    animation: stamp-rotate 40s linear infinite;
+}
+
+@keyframes stamp-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visa-stamp::before {
+        animation: none;
+    }
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* underline نمو تفاعلي للروابط في الهيدر */
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background-color: var(--color-brass);
+    transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+    width: 100%;
+}

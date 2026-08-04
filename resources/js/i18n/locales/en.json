@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "home": "Home",
+    "countries": "Countries & Visas",
+    "process": "How It Works",
+    "contact": "Contact",
+    "apply": "Start Your Application"
+  },
+  "hero": {
+    "eyebrow": "Trusted visa gateway for Egyptians",
+    "title": "Your Gulf visa, handled start to finish",
+    "subtitle": "Poyekhali helps you prepare work and visit visa applications for the Gulf and beyond — from your first consultation to the visa in hand.",
+    "select_label": "Choose your destination",
+    "select_placeholder": "Select a country...",
+    "cta_check": "See required documents",
+    "cta_call": "Talk to an advisor",
+    "stat_countries": "Countries",
+    "stat_clients": "Clients served",
+    "stat_years": "Years of experience"
+  },
+  "trust": {
+    "title": "Why Poyekhali",
+    "licensed": { "title": "Licensed office", "desc": "Officially accredited to handle visa and labor-file applications." },
+    "transparent": { "title": "Transparent fees", "desc": "You know the full cost of your application from day one, no surprises." },
+    "support": { "title": "Real-time tracking", "desc": "Follow your application status from your account on the website." },
+    "fast": { "title": "Fast turnaround", "desc": "Direct relationships with sponsoring entities shorten processing time." }
+  },
+  "process": {
+    "title": "How to apply for your visa",
+    "subtitle": "4 simple steps, from consultation to visa in hand",
+    "step1": { "title": "Free consultation", "desc": "We review your situation and identify the right visa type for you." },
+    "step2": { "title": "Document preparation", "desc": "We send an exact checklist and help you prepare every document." },
+    "step3": { "title": "Application submission", "desc": "We submit your application officially and follow up continuously." },
+    "step4": { "title": "Visa collection", "desc": "Once approved, you collect your visa and start your travel arrangements." }
+  },
+  "countries": {
+    "title": "Available destinations",
+    "subtitle": "Choose your destination country to see full details",
+    "view_all": "View all countries",
+    "gulf": "Gulf countries",
+    "other": "Other destinations",
+    "processing_time": "Estimated processing time",
+    "visa_types": "Available visa types",
+    "view_details": "Details & documents",
+    "fee_from": "Fees from",
+    "egp": "EGP"
+  },
+  "country_page": {
+    "back": "Back to all countries",
+    "documents_title": "Required documents",
+    "visa_types_title": "Visa types",
+    "cta_title": "Ready to start your visa process?",
+    "cta_desc": "Our team will reach out within hours to plan the next steps.",
+    "cta_button": "Request a consultation"
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Our team is ready to answer questions about any country or visa type",
+    "name": "Full name",
+    "phone": "Mobile number",
+    "country": "Country of interest",
+    "message": "Your message",
+    "submit": "Send request",
+    "whatsapp": "Chat on WhatsApp",
+    "address_title": "Main office",
+    "hours_title": "Working hours",
+    "hours_value": "Sat - Thu, 9 AM - 6 PM"
+  },
+  "footer": {
+    "about": "Poyekhali is a travel and visa consultancy specialized in work and visit visas for the Gulf and select other countries, for Egyptian citizens.",
+    "quick_links": "Quick links",
+    "destinations": "Destinations",
+    "contact_info": "Contact info",
+    "disclaimer": "Poyekhali is a visa consultancy and facilitation office, not an embassy or consulate. Final visa approval always rests with the official authorities.",
+    "rights": "All rights reserved"
+  },
+  "lang": { "ar": "العربية", "en": "English" }
+}
