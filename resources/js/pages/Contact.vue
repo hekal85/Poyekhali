@@ -1,24 +1,32 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { Head, useForm, usePage } from '@inertiajs/vue3';
 import { useI18n } from 'vue-i18n';
 import AppLayout from '../Layouts/AppLayout.vue';
+import type { Country } from '../types/country';
 
-const { t } = useI18n();
+defineProps<{ countries?: Country[] }>();
+const { t, locale } = useI18n();
+const page = usePage<{ flash: { success?: string } }>();
 
-// ملاحظة: عدّل هذا الفورم عشان يتصل بـ route فعلي لاستقبال طلبات التواصل عندك
 const form = useForm({
     name: '',
     phone: '',
-    country: '',
+    country_interest: '',
     message: '',
+    document: null as File | null,
 });
 
-const submitted = reactive({ value: false });
+function onFileChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    form.document = target.files?.[0] ?? null;
+}
 
 function submit() {
-    // form.post('/contact', { onSuccess: () => (submitted.value = true) });
-    submitted.value = true; // مؤقتًا لحد ما تربط الراوت الحقيقي
+    form.post('/contact', {
+        forceFormData: true,
+        preserveScroll: true,
+        onSuccess: () => form.reset(),
+    });
 }
 </script>
 
@@ -36,24 +44,36 @@ function submit() {
         <section class="py-16">
             <div class="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-5">
                 <form class="md:col-span-3" @submit.prevent="submit">
-                    <div v-if="submitted.value" class="mb-6 rounded-xl bg-teal/10 p-4 text-sm text-teal">
-                        ✓
+                    <div v-if="page.props.flash?.success" class="mb-6 rounded-xl bg-teal/10 p-4 text-sm text-teal">
+                        {{ page.props.flash.success }}
                     </div>
 
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
                             <label class="text-sm font-medium text-ink/70">{{ t('contact.name') }}</label>
                             <input v-model="form.name" type="text" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" />
+                            <p v-if="form.errors.name" class="mt-1 text-xs text-alert">{{ form.errors.name }}</p>
                         </div>
                         <div>
                             <label class="text-sm font-medium text-ink/70">{{ t('contact.phone') }}</label>
                             <input v-model="form.phone" type="tel" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" />
+                            <p v-if="form.errors.phone" class="mt-1 text-xs text-alert">{{ form.errors.phone }}</p>
                         </div>
                     </div>
 
                     <div class="mt-5">
                         <label class="text-sm font-medium text-ink/70">{{ t('contact.country') }}</label>
-                        <input v-model="form.country" type="text" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" />
+                        <select
+                            v-if="countries?.length"
+                            v-model="form.country_interest"
+                            class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal"
+                        >
+                            <option value="">—</option>
+                            <option v-for="c in countries" :key="c.slug" :value="locale === 'ar' ? c.name.ar : c.name.en">
+                                {{ locale === 'ar' ? c.name.ar : c.name.en }}
+                            </option>
+                        </select>
+                        <input v-else v-model="form.country_interest" type="text" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" />
                     </div>
 
                     <div class="mt-5">
@@ -61,8 +81,25 @@ function submit() {
                         <textarea v-model="form.message" rows="4" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal"></textarea>
                     </div>
 
-                    <button type="submit" class="mt-6 w-full rounded-xl bg-teal py-3 font-display text-sm font-bold text-white hover:bg-teal-light sm:w-auto sm:px-8">
-                        {{ t('contact.submit') }}
+                    <div class="mt-5">
+                        <label class="text-sm font-medium text-ink/70">
+                            {{ locale === 'ar' ? 'مرفق (اختياري - جواز/مؤهل PDF أو صورة)' : 'Attachment (optional - passport/certificate, PDF or image)' }}
+                        </label>
+                        <input
+                            type="file"
+                            accept=".pdf,.jpg,.jpeg,.png"
+                            class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 text-sm outline-none focus:border-teal"
+                            @change="onFileChange"
+                        />
+                        <p v-if="form.errors.document" class="mt-1 text-xs text-alert">{{ form.errors.document }}</p>
+                    </div>
+
+                    <button
+                        type="submit"
+                        :disabled="form.processing"
+                        class="mt-6 w-full rounded-xl bg-teal py-3 font-display text-sm font-bold text-white hover:bg-teal-light disabled:opacity-50 sm:w-auto sm:px-8"
+                    >
+                        {{ form.processing ? '...' : t('contact.submit') }}
                     </button>
                 </form>
 

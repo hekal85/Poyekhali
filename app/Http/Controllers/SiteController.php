@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -11,31 +12,39 @@ class SiteController extends Controller
     public function home(): Response
     {
         return Inertia::render('Home', [
-            'countries' => collect(config('countries'))->values(),
+            'countries' => Country::where('is_active', true)
+                ->orderBy('order')
+                ->get()
+                ->map->toFrontend()
+                ->values(),
         ]);
     }
 
     public function countriesIndex(): Response
     {
         return Inertia::render('Countries/Index', [
-            'countries' => collect(config('countries'))->values(),
+            'countries' => Country::where('is_active', true)
+                ->orderBy('order')
+                ->get()
+                ->map->toFrontend()
+                ->values(),
         ]);
     }
 
     public function countryShow(string $country): Response
     {
-        $data = config("countries.$country");
-
-        abort_unless($data, 404);
+        $model = Country::where('slug', $country)->where('is_active', true)->firstOrFail();
 
         return Inertia::render('Countries/Show', [
-            'country' => $data,
+            'country' => $model->toFrontend(),
         ]);
     }
 
     public function contact(): Response
     {
-        return Inertia::render('Contact');
+        return Inertia::render('Contact', [
+            'countries' => Country::where('is_active', true)->orderBy('order')->get()->map->toFrontend()->values(),
+        ]);
     }
 
     public function setLocale(Request $request)

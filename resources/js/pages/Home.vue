@@ -28,7 +28,15 @@ const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
     <AppLayout>
         <!-- Hero -->
         <section class="relative overflow-hidden bg-ink text-white">
-            <div class="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
+            <!-- خطوط رحلة زخرفية بترمز لمسارات الطيران للخليج - عنصر تصميم أصلي مش صورة خارجية -->
+            <svg class="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12]" viewBox="0 0 1000 600" preserveAspectRatio="none">
+                <path d="M -20 480 Q 250 380 500 420 T 1020 300" fill="none" stroke="var(--color-brass)" stroke-width="1.5" stroke-dasharray="4 8" />
+                <path d="M -20 550 Q 300 500 550 520 T 1020 400" fill="none" stroke="var(--color-teal-light)" stroke-width="1.5" stroke-dasharray="4 8" />
+                <circle cx="500" cy="420" r="4" fill="var(--color-brass)" />
+                <circle cx="1020" cy="300" r="4" fill="var(--color-brass)" />
+            </svg>
+
+            <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
                 <div>
                     <span class="font-display text-sm font-bold tracking-wide text-brass">
                         {{ t('hero.eyebrow') }}
