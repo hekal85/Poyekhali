@@ -11,14 +11,15 @@ const page = usePage<{ flash: { success?: string } }>();
 const form = useForm({
     name: '',
     phone: '',
+    email: '',
     country_interest: '',
     message: '',
-    document: null as File | null,
+    documents: [] as File[],
 });
 
-function onFileChange(e: Event) {
+function onFilesChange(e: Event) {
     const target = e.target as HTMLInputElement;
-    form.document = target.files?.[0] ?? null;
+    form.documents = target.files ? Array.from(target.files) : [];
 }
 
 function submit() {
@@ -43,7 +44,7 @@ function submit() {
 
         <section class="py-16">
             <div class="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-5">
-                <form class="md:col-span-3" @submit.prevent="submit">
+                <form class="md:col-span-3" @submit.prevent="submit" enctype="multipart/form-data">
                     <div v-if="page.props.flash?.success" class="mb-6 rounded-xl bg-teal/10 p-4 text-sm text-teal">
                         {{ page.props.flash.success }}
                     </div>
@@ -59,6 +60,12 @@ function submit() {
                             <input v-model="form.phone" type="tel" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" />
                             <p v-if="form.errors.phone" class="mt-1 text-xs text-alert">{{ form.errors.phone }}</p>
                         </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <label class="text-sm font-medium text-ink/70">{{ t('contact.email') }}</label>
+                        <input v-model="form.email" type="email" class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 outline-none focus:border-teal" dir="ltr" />
+                        <p v-if="form.errors.email" class="mt-1 text-xs text-alert">{{ form.errors.email }}</p>
                     </div>
 
                     <div class="mt-5">
@@ -83,15 +90,19 @@ function submit() {
 
                     <div class="mt-5">
                         <label class="text-sm font-medium text-ink/70">
-                            {{ locale === 'ar' ? 'مرفق (اختياري - جواز/مؤهل PDF أو صورة)' : 'Attachment (optional - passport/certificate, PDF or image)' }}
+                            {{ locale === 'ar' ? 'مرفقات (اختياري - أكتر من ملف، PDF أو صورة)' : 'Attachments (optional - multiple files, PDF or image)' }}
                         </label>
                         <input
                             type="file"
+                            multiple
                             accept=".pdf,.jpg,.jpeg,.png"
                             class="mt-1 w-full rounded-lg border border-paper-dark px-4 py-2.5 text-sm outline-none focus:border-teal"
-                            @change="onFileChange"
+                            @change="onFilesChange"
                         />
-                        <p v-if="form.errors.document" class="mt-1 text-xs text-alert">{{ form.errors.document }}</p>
+                        <p v-if="form.errors.documents" class="mt-1 text-xs text-alert">{{ form.errors.documents }}</p>
+                        <ul v-if="form.documents.length" class="mt-2 space-y-1 text-xs text-ink/50">
+                            <li v-for="(f, i) in form.documents" :key="i">{{ f.name }}</li>
+                        </ul>
                     </div>
 
                     <button
@@ -103,13 +114,29 @@ function submit() {
                     </button>
                 </form>
 
-                <div class="md:col-span-2 space-y-6">
+                <div class="md:col-span-2 space-y-4">
                     <a
-                        href="https://wa.me/201000000000"
+                        href="https://wa.me/79936445881"
                         target="_blank"
                         class="flex items-center justify-center gap-2 rounded-xl bg-[#1DA851] py-3 font-display text-sm font-bold text-white hover:opacity-90"
                     >
                         {{ t('contact.whatsapp') }}
+                    </a>
+
+                    <a
+                        href="https://t.me/hekal_85"
+                        target="_blank"
+                        class="flex items-center justify-center gap-2 rounded-xl bg-[#26A5E4] py-3 font-display text-sm font-bold text-white hover:opacity-90"
+                    >
+                        {{ t('contact.telegram') }}: @hekal_85
+                    </a>
+
+                    <a
+                        href="mailto:hekal_85@hotmail.com"
+                        class="flex items-center justify-center gap-2 rounded-xl border border-paper-dark bg-white py-3 font-display text-sm font-bold text-ink hover:bg-paper"
+                        dir="ltr"
+                    >
+                        {{ t('contact.email_label') }}: hekal_85@hotmail.com
                     </a>
 
                     <div class="rounded-xl border border-paper-dark bg-white p-5">

@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "home": "Home",
+    "countries": "Paesi e visti",
+    "process": "Come funziona",
+    "contact": "Contatti",
+    "apply": "Inizia la tua richiesta",
+    "login": "Accedi",
+    "register": "Registrati",
+    "track": "Traccia la tua richiesta"
+  },
+  "hero": {
+    "eyebrow": "Portale visti affidabile per gli egiziani",
+    "title": "Il tuo visto per il Golfo, gestito dall'inizio alla fine",
+    "subtitle": "Poyekhali ti aiuta a preparare le domande di visto di lavoro e visita per il Golfo e oltre — dalla prima consulenza al visto in mano.",
+    "select_label": "Scegli la tua destinazione",
+    "select_placeholder": "Seleziona un paese...",
+    "cta_check": "Vedi i documenti richiesti",
+    "cta_call": "Parla con un consulente",
+    "stat_countries": "Paesi",
+    "stat_clients": "Clienti serviti",
+    "stat_years": "Anni di esperienza",
+    "stat_applications": "Visti rilasciati"
+  },
+  "trust": {
+    "title": "Perché Poyekhali",
+    "licensed": {
+      "title": "Ufficio autorizzato",
+      "desc": "Ufficialmente accreditati per gestire pratiche di visto e lavoro."
+    },
+    "transparent": {
+      "title": "Tariffe trasparenti",
+      "desc": "Conosci il costo totale della tua richiesta fin dal primo giorno."
+    },
+    "support": {
+      "title": "Monitoraggio in tempo reale",
+      "desc": "Segui lo stato della tua richiesta in qualsiasi momento dalla pagina di tracciamento."
+    },
+    "fast": {
+      "title": "Tempi rapidi",
+      "desc": "Relazioni dirette con gli enti garanti riducono i tempi di elaborazione."
+    }
+  },
+  "process": {
+    "title": "Come richiedere il tuo visto",
+    "subtitle": "4 semplici passaggi, dalla consulenza al visto in mano",
+    "step1": {
+      "title": "Consulenza gratuita",
+      "desc": "Analizziamo la tua situazione e individuiamo il visto giusto per te."
+    },
+    "step2": {
+      "title": "Preparazione documenti",
+      "desc": "Inviamo una lista precisa e ti aiutiamo a preparare ogni documento."
+    },
+    "step3": {
+      "title": "Invio della richiesta",
+      "desc": "Presentiamo ufficialmente la tua richiesta e la seguiamo costantemente."
+    },
+    "step4": {
+      "title": "Ritiro del visto",
+      "desc": "Una volta approvato, ritiri il visto e inizi a organizzare il viaggio."
+    }
+  },
+  "countries": {
+    "title": "Destinazioni disponibili",
+    "subtitle": "Scegli il paese di destinazione per vedere tutti i dettagli",
+    "view_all": "Vedi tutti i paesi",
+    "gulf": "Paesi del Golfo",
+    "other": "Altre destinazioni",
+    "processing_time": "Tempo di elaborazione stimato",
+    "visa_types": "Tipi di visto disponibili",
+    "view_details": "Dettagli e documenti",
+    "fee_from": "Costi a partire da",
+    "egp": "EGP"
+  },
+  "country_page": {
+    "back": "Torna a tutti i paesi",
+    "documents_title": "Documenti richiesti",
+    "visa_types_title": "Tipi di visto",
+    "cta_title": "Pronto a iniziare la procedura del visto?",
+    "cta_desc": "Il nostro team ti contatterà entro poche ore.",
+    "cta_button": "Richiedi una consulenza"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Il nostro team è pronto a rispondere alle tue domande su qualsiasi paese o tipo di visto",
+    "name": "Nome completo",
+    "phone": "Numero di cellulare",
+    "email": "Indirizzo email",
+    "country": "Paese di interesse",
+    "message": "Il tuo messaggio",
+    "submit": "Invia richiesta",
+    "whatsapp": "Chatta su WhatsApp",
+    "telegram": "Scrivici su Telegram",
+    "email_label": "Scrivici via email",
+    "address_title": "Ufficio principale",
+    "hours_title": "Orari di apertura",
+    "hours_value": "Sab - Gio, 9:00 - 18:00"
+  },
+  "apply": {
+    "title": "Inizia la tua richiesta",
+    "subtitle": "Compila i tuoi dati e allega i documenti - il nostro team ti contatterà entro poche ore",
+    "name": "Nome completo",
+    "passport_number": "Numero di passaporto",
+    "country": "Paese",
+    "visa_type": "Tipo di visto",
+    "select_country_first": "Seleziona prima un paese",
+    "payment_receipt": "Ricevuta di pagamento (opzionale)",
+    "documents_title": "Allega documenti",
+    "document_type": "Tipo di documento",
+    "document_file": "File",
+    "add_document": "+ Aggiungi documento",
+    "remove": "Rimuovi",
+    "address": "Indirizzo",
+    "phone": "Telefono",
+    "email": "Email",
+    "notes": "Note",
+    "submit": "Invia richiesta",
+    "success_title": "La tua richiesta è stata ricevuta",
+    "success_message": "Il nostro team ti contatterà entro poche ore. Conserva questo numero d'ordine per tracciare lo stato:",
+    "doc_types": {
+      "passport": "Passaporto",
+      "degree": "Diploma di laurea",
+      "personal_photo": "Foto personale",
+      "travel_ticket": "Biglietto di viaggio",
+      "medical_certificate": "Certificato medico",
+      "hotel_booking": "Prenotazione hotel",
+      "other": "Altro"
+    },
+    "keep_order_number": "Conserva questo numero d'ordine per monitorare lo stato della tua richiesta",
+    "copy_order_number": "Copia numero d'ordine",
+    "copied": "Copiato ✓"
+  },
+  "track": {
+    "title": "Traccia la tua richiesta",
+    "subtitle": "Inserisci il numero d'ordine e il numero di passaporto per controllare lo stato",
+    "order_number": "Numero d'ordine",
+    "passport_number": "Numero di passaporto",
+    "submit": "Verifica",
+    "not_found": "Spiacenti, nessuna richiesta trovata con questi dati. Controlla i tuoi numeri.",
+    "result_title": "Risultato",
+    "status_label": "Stato",
+    "country_label": "Paese",
+    "visa_type_label": "Tipo di visto",
+    "date_label": "Data della richiesta"
+  },
+  "application_status": {
+    "under_review": "In fase di revisione",
+    "approved_processing": "Approvata - visto in elaborazione",
+    "visa_ready": "Visto pronto",
+    "visa_cancelled": "Visto annullato",
+    "deleted": "Richiesta eliminata",
+    "other": "Altro stato"
+  },
+  "auth": {
+    "login_title": "Accedi",
+    "register_title": "Crea un nuovo account",
+    "name": "Nome completo",
+    "email": "Indirizzo email",
+    "password": "Password",
+    "password_confirmation": "Conferma password",
+    "remember": "Ricordami",
+    "submit_login": "Accedi",
+    "submit_register": "Crea account",
+    "no_account": "Non hai ancora un account?",
+    "have_account": "Hai già un account?"
+  },
+  "footer": {
+    "about": "Poyekhali è un'agenzia di viaggi e visti specializzata in visti di lavoro e visita per il Golfo e altri paesi, per i cittadini egiziani.",
+    "quick_links": "Link rapidi",
+    "destinations": "Destinazioni",
+    "contact_info": "Informazioni di contatto",
+    "disclaimer": "Poyekhali è un'agenzia di consulenza e assistenza visti, non un'ambasciata o un consolato. L'approvazione finale del visto spetta sempre alle autorità ufficiali.",
+    "rights": "Tutti i diritti riservati",
+    "available_countries": "Paesi disponibili",
+    "available_visa_types": "Tipi di visto"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "ru": "Русский",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "user_menu": {
+    "admin_panel": "Pannello di amministrazione",
+    "dashboard": "Il mio account",
+    "my_applications": "Le mie richieste",
+    "logout": "Esci"
+  },
+  "notifications": {
+    "title": "Notifiche",
+    "empty": "Nessuna notifica per ora",
+    "mark_all_read": "Segna tutto come letto"
+  },
+  "dashboard": {
+    "title": "Il mio account",
+    "subtitle": "Monitora qui le tue richieste e notifiche",
+    "my_applications": "Le tue richieste",
+    "new_request": "+ Nuova richiesta",
+    "no_applications": "Non hai ancora inviato richieste"
+  },
+  "visa_types": {
+    "title": "Tipi di visto disponibili",
+    "subtitle": "Scegli un tipo di visto e scopri in quali paesi è disponibile",
+    "available_in": "Disponibile in",
+    "apply_now": "Richiedi ora"
+  }
+}

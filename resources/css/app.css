@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
-/* خطوط: Cairo لعناوين عربي/إنجليزي، IBM Plex Sans Arabic + IBM Plex Sans للنصوص */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+/* خطوط: Cairo لعناوين عربي/إنجليزي، IBM Plex Sans Arabic + IBM Plex Sans للنصوص، Unbounded للوجو الروسي */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Unbounded:wght@600;800&display=swap');
 
 @theme {
     /* -- ألوان الهوية -- */
@@ -17,7 +17,30 @@
 
     --font-display: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
     --font-body: 'IBM Plex Sans Arabic', 'IBM Plex Sans', sans-serif;
+    --font-logo: 'Unbounded', 'Cairo', sans-serif; /* بيدعم السيريلية عشان "Поехали" */
 }
+
+.font-logo {
+    font-family: var(--font-logo);
+}
+
+/* شرائح خلفية الهيرو المتغيرة (مدن سياحية) - crossfade بطيء بين الصور */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+.hero-slide--active {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide--active { transition: none; }
+}
+
 
 html {
     scroll-behavior: smooth;

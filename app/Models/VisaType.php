@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class VisaType extends Model
 {
-    protected $fillable = ['country_id', 'key', 'name_ar', 'name_en', 'fee', 'order'];
+    protected $fillable = [
+        'country_id', 'key', 'name_ar', 'name_en',
+        'processing_time_ar', 'fee', 'order', 'is_active',
+    ];
+
+    protected $casts = ['is_active' => 'boolean'];
 
     public function country(): BelongsTo
     {

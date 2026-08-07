@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { useI18n } from 'vue-i18n';
 import AppLayout from '../Layouts/AppLayout.vue';
@@ -8,7 +8,10 @@ import ProcessSteps from '../Components/ProcessSteps.vue';
 import CountryCard from '../Components/CountryCard.vue';
 import type { Country } from '../types/country';
 
-const props = defineProps<{ countries: Country[] }>();
+const props = defineProps<{
+    countries: Country[];
+    stats: { countries: number; applications: number; clients: number; years: number };
+}>();
 const { t, locale } = useI18n();
 
 const selectedSlug = ref('');
@@ -20,6 +23,35 @@ function goToCountry() {
 }
 
 const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
+
+const prefix = '0';
+const suffix = '.jpg';
+const fallbackSlide = 'https://cdn2.picryl.com/photo/2011/12/19/expedition-30-soyuz-rollout-dd28e3-1024.jpg';
+
+const heroSlides = Array.from({ length: 34 }, (_, i) =>
+  `${prefix}${i + 1 < 10 ? '0' : ''}${i + 1}${suffix}`
+);
+
+const randomSlides = ref([...heroSlides]);
+const activeSlide = ref(0);
+let slideTimer: ReturnType<typeof setInterval> | undefined;
+
+onMounted(() => {
+    shuffleSlides();
+
+    slideTimer = setInterval(() => {
+        activeSlide.value = (activeSlide.value + 1) % randomSlides.value.length;
+    }, 5000);
+});
+onUnmounted(() => {
+    if (slideTimer) clearInterval(slideTimer);
+});
+
+// دالة عشوائية
+function shuffleSlides() {
+    randomSlides.value = [...heroSlides].sort(() => Math.random() - 0.5);
+    activeSlide.value = 0; // نرجع لأول صورة جديدة بعد التجول
+}
 </script>
 
 <template>
@@ -28,31 +60,50 @@ const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
     <AppLayout>
         <!-- Hero -->
         <section class="relative overflow-hidden bg-ink text-white">
-            <!-- خطوط رحلة زخرفية بترمز لمسارات الطيران للخليج - عنصر تصميم أصلي مش صورة خارجية -->
-            <svg class="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12]" viewBox="0 0 1000 600" preserveAspectRatio="none">
-                <path d="M -20 480 Q 250 380 500 420 T 1020 300" fill="none" stroke="var(--color-brass)" stroke-width="1.5" stroke-dasharray="4 8" />
-                <path d="M -20 550 Q 300 500 550 520 T 1020 400" fill="none" stroke="var(--color-teal-light)" stroke-width="1.5" stroke-dasharray="4 8" />
-                <circle cx="500" cy="420" r="4" fill="var(--color-brass)" />
-                <circle cx="1020" cy="300" r="4" fill="var(--color-brass)" />
-            </svg>
+            <div
+                v-for="(src, i) in heroSlides"
+                :key="i"
+                class="hero-slide"
+                :class="{ 'hero-slide--active': i === activeSlide }"
+                :style="{ backgroundImage: `url(${src})` }"
+            ></div>
 
-            <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/35 to-ink/80"
+            ></div>
+
+            <div
+                class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28"
+            >
                 <div>
-                    <span class="font-display text-sm font-bold tracking-wide text-brass">
+                    <span
+                        class="font-display text-sm font-bold tracking-wide text-brass"
+                    >
                         {{ t('hero.eyebrow') }}
                     </span>
-                    <h1 class="mt-4 font-display text-4xl font-extrabold leading-tight md:text-5xl">
+                    <h1
+                        class="mt-4 font-display text-4xl leading-tight font-extrabold md:text-5xl"
+                    >
                         {{ t('hero.title') }}
                     </h1>
-                    <p class="mt-5 max-w-lg text-white/70">{{ t('hero.subtitle') }}</p>
+                    <p class="mt-5 max-w-lg text-white/70">
+                        {{ t('hero.subtitle') }}
+                    </p>
 
-                    <form class="mt-8 flex flex-col gap-3 sm:flex-row" @submit.prevent="goToCountry">
-                        <label class="sr-only">{{ t('hero.select_label') }}</label>
+                    <form
+                        class="mt-8 flex flex-col gap-3 sm:flex-row"
+                        @submit.prevent="goToCountry"
+                    >
+                        <label class="sr-only">{{
+                            t('hero.select_label')
+                        }}</label>
                         <select
                             v-model="selectedSlug"
                             class="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white outline-none focus:border-brass sm:w-64"
                         >
-                            <option value="" disabled selected class="text-ink">{{ t('hero.select_placeholder') }}</option>
+                            <option value="" disabled selected class="text-ink">
+                                {{ t('hero.select_placeholder') }}
+                            </option>
                             <option
                                 v-for="c in props.countries"
                                 :key="c.slug"
@@ -70,18 +121,48 @@ const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
                         </button>
                     </form>
 
-                    <div class="mt-10 flex gap-10 border-t border-white/10 pt-8">
+                    <div
+                        class="mt-10 flex flex-wrap gap-8 border-t border-white/10 pt-8"
+                    >
                         <div>
-                            <p class="font-display text-2xl font-extrabold text-brass">{{ props.countries.length }}+</p>
-                            <p class="text-xs text-white/60">{{ t('hero.stat_countries') }}</p>
+                            <p
+                                class="font-display text-2xl font-extrabold text-brass"
+                            >
+                                {{ props.stats.countries }}+
+                            </p>
+                            <p class="text-xs text-white/60">
+                                {{ t('hero.stat_countries') }}
+                            </p>
                         </div>
                         <div>
-                            <p class="font-display text-2xl font-extrabold text-brass">4,200+</p>
-                            <p class="text-xs text-white/60">{{ t('hero.stat_clients') }}</p>
+                            <p
+                                class="font-display text-2xl font-extrabold text-brass"
+                            >
+                                {{ props.stats.applications }}+
+                            </p>
+                            <p class="text-xs text-white/60">
+                                {{ t('hero.stat_applications') }}
+                            </p>
                         </div>
                         <div>
-                            <p class="font-display text-2xl font-extrabold text-brass">9</p>
-                            <p class="text-xs text-white/60">{{ t('hero.stat_years') }}</p>
+                            <p
+                                class="font-display text-2xl font-extrabold text-brass"
+                            >
+                                {{ props.stats.clients }}+
+                            </p>
+                            <p class="text-xs text-white/60">
+                                {{ t('hero.stat_clients') }}
+                            </p>
+                        </div>
+                        <div>
+                            <p
+                                class="font-display text-2xl font-extrabold text-brass"
+                            >
+                                {{ props.stats.years }}
+                            </p>
+                            <p class="text-xs text-white/60">
+                                {{ t('hero.stat_years') }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -95,11 +176,23 @@ const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
         <!-- Trust -->
         <section class="bg-paper py-16">
             <div class="mx-auto max-w-7xl px-6">
-                <h2 class="font-display text-2xl font-extrabold text-ink md:text-3xl">{{ t('trust.title') }}</h2>
+                <h2
+                    class="font-display text-2xl font-extrabold text-ink md:text-3xl"
+                >
+                    {{ t('trust.title') }}
+                </h2>
                 <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <div v-for="item in trustItems" :key="item" class="rounded-2xl bg-white p-6 shadow-sm shadow-ink/5">
-                        <h3 class="font-display text-base font-bold text-teal">{{ t(`trust.${item}.title`) }}</h3>
-                        <p class="mt-2 text-sm leading-relaxed text-ink/60">{{ t(`trust.${item}.desc`) }}</p>
+                    <div
+                        v-for="item in trustItems"
+                        :key="item"
+                        class="rounded-2xl bg-white p-6 shadow-sm shadow-ink/5"
+                    >
+                        <h3 class="font-display text-base font-bold text-teal">
+                            {{ t(`trust.${item}.title`) }}
+                        </h3>
+                        <p class="mt-2 text-sm leading-relaxed text-ink/60">
+                            {{ t(`trust.${item}.desc`) }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -112,16 +205,29 @@ const trustItems = ['licensed', 'transparent', 'support', 'fast'] as const;
             <div class="mx-auto max-w-7xl px-6">
                 <div class="flex flex-wrap items-end justify-between gap-4">
                     <div>
-                        <h2 class="font-display text-3xl font-extrabold text-ink md:text-4xl">{{ t('countries.title') }}</h2>
-                        <p class="mt-3 text-ink/60">{{ t('countries.subtitle') }}</p>
+                        <h2
+                            class="font-display text-3xl font-extrabold text-ink md:text-4xl"
+                        >
+                            {{ t('countries.title') }}
+                        </h2>
+                        <p class="mt-3 text-ink/60">
+                            {{ t('countries.subtitle') }}
+                        </p>
                     </div>
-                    <Link href="/countries" class="font-display text-sm font-bold text-teal hover:underline">
+                    <Link
+                        href="/countries"
+                        class="font-display text-sm font-bold text-teal hover:underline"
+                    >
                         {{ t('countries.view_all') }}
                     </Link>
                 </div>
 
                 <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <CountryCard v-for="c in props.countries.slice(0, 4)" :key="c.slug" :country="c" />
+                    <CountryCard
+                        v-for="c in props.countries.slice(0, 4)"
+                        :key="c.slug"
+                        :country="c"
+                    />
                 </div>
             </div>
         </section>

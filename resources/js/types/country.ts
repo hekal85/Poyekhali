@@ -4,9 +4,11 @@ export interface LocalizedText {
 }
 
 export interface VisaType {
+    id?: number;
     key: string;
     name: LocalizedText;
     fee: number;
+    processing_time_ar: string | null;
     documents: LocalizedText[];
 }
 
@@ -16,7 +18,7 @@ export interface Country {
     flag: string; // ISO 3166-1 alpha-2 code, lowercase
     name: LocalizedText;
     region: 'gulf' | 'other';
-    processing_time: LocalizedText;
+    processing_time_en: string;
     image_url: string | null;
     visa_types: VisaType[];
 }

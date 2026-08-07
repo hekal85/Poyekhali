@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "countries": "Länder & Visa",
+    "process": "So funktioniert's",
+    "contact": "Kontakt",
+    "apply": "Antrag stellen",
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "track": "Antrag verfolgen"
+  },
+  "hero": {
+    "eyebrow": "Vertrauenswürdiges Visaportal für Ägypter",
+    "title": "Ihr Golf-Visum, von Anfang bis Ende betreut",
+    "subtitle": "Poyekhali hilft Ihnen bei der Vorbereitung von Arbeits- und Besuchsvisa für die Golfstaaten und darüber hinaus — von der ersten Beratung bis zum fertigen Visum.",
+    "select_label": "Wählen Sie Ihr Reiseziel",
+    "select_placeholder": "Land auswählen...",
+    "cta_check": "Erforderliche Dokumente ansehen",
+    "cta_call": "Mit einem Berater sprechen",
+    "stat_countries": "Länder",
+    "stat_clients": "Betreute Kunden",
+    "stat_years": "Jahre Erfahrung",
+    "stat_applications": "Ausgestellte Visa"
+  },
+  "trust": {
+    "title": "Warum Poyekhali",
+    "licensed": {
+      "title": "Lizenziertes Büro",
+      "desc": "Offiziell akkreditiert für die Bearbeitung von Visa- und Arbeitsanträgen."
+    },
+    "transparent": {
+      "title": "Transparente Gebühren",
+      "desc": "Sie kennen die vollen Kosten Ihres Antrags von Anfang an."
+    },
+    "support": {
+      "title": "Echtzeit-Verfolgung",
+      "desc": "Verfolgen Sie den Status Ihres Antrags jederzeit auf der Tracking-Seite."
+    },
+    "fast": {
+      "title": "Schnelle Bearbeitung",
+      "desc": "Direkte Beziehungen zu Sponsoren verkürzen die Bearbeitungszeit."
+    }
+  },
+  "process": {
+    "title": "So beantragen Sie Ihr Visum",
+    "subtitle": "4 einfache Schritte, von der Beratung bis zum fertigen Visum",
+    "step1": {
+      "title": "Kostenlose Beratung",
+      "desc": "Wir prüfen Ihre Situation und finden den passenden Visatyp."
+    },
+    "step2": {
+      "title": "Dokumentenvorbereitung",
+      "desc": "Wir senden eine genaue Checkliste und helfen bei der Vorbereitung."
+    },
+    "step3": {
+      "title": "Antragseinreichung",
+      "desc": "Wir reichen Ihren Antrag offiziell ein und verfolgen ihn kontinuierlich."
+    },
+    "step4": {
+      "title": "Visumabholung",
+      "desc": "Nach Genehmigung erhalten Sie Ihr Visum und beginnen die Reisevorbereitung."
+    }
+  },
+  "countries": {
+    "title": "Verfügbare Reiseziele",
+    "subtitle": "Wählen Sie Ihr Zielland, um alle Details zu sehen",
+    "view_all": "Alle Länder anzeigen",
+    "gulf": "Golfstaaten",
+    "other": "Andere Reiseziele",
+    "processing_time": "Geschätzte Bearbeitungszeit",
+    "visa_types": "Verfügbare Visatypen",
+    "view_details": "Details & Dokumente",
+    "fee_from": "Gebühren ab",
+    "egp": "EGP"
+  },
+  "country_page": {
+    "back": "Zurück zu allen Ländern",
+    "documents_title": "Erforderliche Dokumente",
+    "visa_types_title": "Visatypen",
+    "cta_title": "Bereit, Ihr Visumverfahren zu starten?",
+    "cta_desc": "Unser Team meldet sich innerhalb weniger Stunden bei Ihnen.",
+    "cta_button": "Beratung anfordern"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Unser Team beantwortet gerne Fragen zu jedem Land oder Visatyp",
+    "name": "Vollständiger Name",
+    "phone": "Mobilnummer",
+    "email": "E-Mail-Adresse",
+    "country": "Interessiertes Land",
+    "message": "Ihre Nachricht",
+    "submit": "Anfrage senden",
+    "whatsapp": "Auf WhatsApp chatten",
+    "telegram": "Auf Telegram schreiben",
+    "email_label": "Schreiben Sie uns per E-Mail",
+    "address_title": "Hauptbüro",
+    "hours_title": "Öffnungszeiten",
+    "hours_value": "Sa - Do, 9 - 18 Uhr"
+  },
+  "apply": {
+    "title": "Antrag stellen",
+    "subtitle": "Füllen Sie Ihre Daten aus und fügen Sie Ihre Dokumente bei - unser Team meldet sich innerhalb weniger Stunden",
+    "name": "Vollständiger Name",
+    "passport_number": "Reisepassnummer",
+    "country": "Land",
+    "visa_type": "Visatyp",
+    "select_country_first": "Wählen Sie zuerst ein Land",
+    "payment_receipt": "Zahlungsbeleg (optional)",
+    "documents_title": "Dokumente anhängen",
+    "document_type": "Dokumenttyp",
+    "document_file": "Datei",
+    "add_document": "+ Dokument hinzufügen",
+    "remove": "Entfernen",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "notes": "Anmerkungen",
+    "submit": "Antrag senden",
+    "success_title": "Ihr Antrag wurde empfangen",
+    "success_message": "Unser Team meldet sich innerhalb weniger Stunden. Notieren Sie sich diese Bestellnummer zur Statusverfolgung:",
+    "doc_types": {
+      "passport": "Reisepass",
+      "degree": "Abschlusszeugnis",
+      "personal_photo": "Persönliches Foto",
+      "travel_ticket": "Reiseticket",
+      "medical_certificate": "Ärztliches Attest",
+      "hotel_booking": "Hotelbuchung",
+      "other": "Sonstiges"
+    },
+    "keep_order_number": "Bewahren Sie diese Bestellnummer auf, um den Status Ihres Antrags zu verfolgen",
+    "copy_order_number": "Bestellnummer kopieren",
+    "copied": "Kopiert ✓"
+  },
+  "track": {
+    "title": "Antrag verfolgen",
+    "subtitle": "Geben Sie Ihre Bestellnummer und Reisepassnummer ein, um den Status zu prüfen",
+    "order_number": "Bestellnummer",
+    "passport_number": "Reisepassnummer",
+    "submit": "Status prüfen",
+    "not_found": "Entschuldigung, mit diesen Angaben wurde kein Antrag gefunden. Bitte überprüfen Sie Ihre Nummern.",
+    "result_title": "Ergebnis",
+    "status_label": "Status",
+    "country_label": "Land",
+    "visa_type_label": "Visatyp",
+    "date_label": "Antragsdatum"
+  },
+  "application_status": {
+    "under_review": "In Prüfung",
+    "approved_processing": "Genehmigt - Visum wird bearbeitet",
+    "visa_ready": "Visum fertig",
+    "visa_cancelled": "Visum storniert",
+    "deleted": "Antrag gelöscht",
+    "other": "Anderer Status"
+  },
+  "auth": {
+    "login_title": "Anmelden",
+    "register_title": "Neues Konto erstellen",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "password_confirmation": "Passwort bestätigen",
+    "remember": "Angemeldet bleiben",
+    "submit_login": "Anmelden",
+    "submit_register": "Konto erstellen",
+    "no_account": "Noch kein Konto?",
+    "have_account": "Bereits ein Konto?"
+  },
+  "footer": {
+    "about": "Poyekhali ist eine Reise- und Visaagentur, spezialisiert auf Arbeits- und Besuchsvisa für die Golfstaaten und weitere Länder, für ägyptische Staatsbürger.",
+    "quick_links": "Schnellzugriff",
+    "destinations": "Reiseziele",
+    "contact_info": "Kontaktinformationen",
+    "disclaimer": "Poyekhali ist eine Visa-Beratungsagentur, keine Botschaft oder Konsulat. Die endgültige Visumsgenehmigung liegt stets bei den offiziellen Behörden.",
+    "rights": "Alle Rechte vorbehalten",
+    "available_countries": "Verfügbare Länder",
+    "available_visa_types": "Visatypen"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "ru": "Русский",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "user_menu": {
+    "admin_panel": "Admin-Bereich",
+    "dashboard": "Mein Konto",
+    "my_applications": "Meine Anträge",
+    "logout": "Abmelden"
+  },
+  "notifications": {
+    "title": "Benachrichtigungen",
+    "empty": "Noch keine Benachrichtigungen",
+    "mark_all_read": "Alle als gelesen markieren"
+  },
+  "dashboard": {
+    "title": "Mein Konto",
+    "subtitle": "Verfolgen Sie hier Ihre Anträge und Benachrichtigungen",
+    "my_applications": "Ihre Anträge",
+    "new_request": "+ Neuer Antrag",
+    "no_applications": "Sie haben noch keine Anträge eingereicht"
+  },
+  "visa_types": {
+    "title": "Verfügbare Visatypen",
+    "subtitle": "Wählen Sie einen Visatyp und sehen Sie, in welchen Ländern er verfügbar ist",
+    "available_in": "Verfügbar in",
+    "apply_now": "Jetzt beantragen"
+  }
+}

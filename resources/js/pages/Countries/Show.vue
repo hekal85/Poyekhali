@@ -8,7 +8,6 @@ import { flagEmoji, type Country } from '../../types/country';
 const props = defineProps<{ country: Country }>();
 const { t, locale } = useI18n();
 
-// نوع التأشيرة المختار حاليًا - افتراضيًا أول نوع في القائمة
 const selectedKey = ref(props.country.visa_types[0]?.key ?? '');
 
 const selectedVisaType = computed(() =>
@@ -47,8 +46,7 @@ function selectVisaType(key: string) {
                             {{ locale === 'ar' ? country.name.ar : country.name.en }}
                         </h1>
                         <p class="mt-1 text-sm text-white/60">
-                            {{ t('countries.processing_time') }}:
-                            {{ locale === 'ar' ? country.processing_time.ar : country.processing_time.en }}
+                            {{ t('countries.processing_time') }}: {{ country.processing_time_en }}
                         </p>
                     </div>
                 </div>
@@ -57,7 +55,6 @@ function selectVisaType(key: string) {
 
         <section class="py-14">
             <div class="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-5">
-                <!-- اختيار نوع التأشيرة -->
                 <div class="md:col-span-2">
                     <h2 class="font-display text-lg font-bold text-ink">{{ t('country_page.visa_types_title') }}</h2>
                     <p class="mt-1 text-xs text-ink/50">
@@ -91,11 +88,14 @@ function selectVisaType(key: string) {
                             <p class="mt-1 text-sm text-teal">
                                 {{ t('countries.fee_from') }} {{ v.fee.toLocaleString() }} {{ t('countries.egp') }}
                             </p>
+                            <p v-if="v.processing_time_ar" class="mt-0.5 text-xs text-ink/40">{{ v.processing_time_ar }}</p>
                         </button>
+                        <p v-if="!country.visa_types.length" class="text-sm text-ink/40">
+                            {{ locale === 'ar' ? 'مفيش أنواع تأشيرات مفعّلة لهذه الدولة حاليًا.' : 'No active visa types for this country right now.' }}
+                        </p>
                     </div>
                 </div>
 
-                <!-- مستندات نوع التأشيرة المختار -->
                 <div class="md:col-span-3">
                     <h2 class="font-display text-lg font-bold text-ink">
                         {{ t('country_page.documents_title') }}
@@ -116,22 +116,18 @@ function selectVisaType(key: string) {
                                 </svg>
                                 <span class="text-sm text-ink/80">{{ locale === 'ar' ? doc.ar : doc.en }}</span>
                             </li>
-                            <li v-if="!selectedVisaType?.documents?.length" class="rounded-xl border border-dashed border-paper-dark p-4 text-sm text-ink/40">
-                                {{ locale === 'ar' ? 'مفيش مستندات مضافة لنوع التأشيرة ده لسه.' : 'No documents added for this visa type yet.' }}
-                            </li>
                         </ul>
                     </transition>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
         <section class="bg-teal py-16 text-white">
             <div class="mx-auto max-w-5xl px-6 text-center">
                 <h2 class="font-display text-2xl font-extrabold md:text-3xl">{{ t('country_page.cta_title') }}</h2>
                 <p class="mt-3 text-white/80">{{ t('country_page.cta_desc') }}</p>
                 <Link
-                    href="/contact"
+                    :href="`/apply?country=${country.slug}`"
                     class="mt-8 inline-block rounded-full bg-brass px-8 py-3 font-display text-sm font-bold text-ink hover:bg-brass-light"
                 >
                     {{ t('country_page.cta_button') }}
@@ -142,12 +138,6 @@ function selectVisaType(key: string) {
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.15s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-    opacity: 0;
-}
+.fade-enter-active, .fade-leave-active { transition: opacity 0.15s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>

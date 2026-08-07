@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "countries": "Pays et visas",
+    "process": "Comment ça marche",
+    "contact": "Contact",
+    "apply": "Commencer votre demande",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "track": "Suivre votre demande"
+  },
+  "hero": {
+    "eyebrow": "Portail de visas de confiance pour les Égyptiens",
+    "title": "Votre visa pour le Golfe, pris en charge du début à la fin",
+    "subtitle": "Poyekhali vous aide à préparer vos demandes de visa de travail ou de visite pour le Golfe et au-delà — de la première consultation jusqu'au visa en main.",
+    "select_label": "Choisissez votre destination",
+    "select_placeholder": "Sélectionnez un pays...",
+    "cta_check": "Voir les documents requis",
+    "cta_call": "Parler à un conseiller",
+    "stat_countries": "Pays",
+    "stat_clients": "Clients servis",
+    "stat_years": "Années d'expérience",
+    "stat_applications": "Visas délivrés"
+  },
+  "trust": {
+    "title": "Pourquoi Poyekhali",
+    "licensed": {
+      "title": "Agence agréée",
+      "desc": "Officiellement accréditée pour traiter les demandes de visa et de travail."
+    },
+    "transparent": {
+      "title": "Frais transparents",
+      "desc": "Vous connaissez le coût total de votre demande dès le premier jour."
+    },
+    "support": {
+      "title": "Suivi en temps réel",
+      "desc": "Suivez le statut de votre demande à tout moment depuis la page de suivi."
+    },
+    "fast": {
+      "title": "Traitement rapide",
+      "desc": "Des relations directes avec les organismes parrains réduisent les délais."
+    }
+  },
+  "process": {
+    "title": "Comment demander votre visa",
+    "subtitle": "4 étapes simples, de la consultation au visa en main",
+    "step1": {
+      "title": "Consultation gratuite",
+      "desc": "Nous étudions votre situation et identifions le bon type de visa."
+    },
+    "step2": {
+      "title": "Préparation des documents",
+      "desc": "Nous envoyons une liste précise et vous aidons à tout préparer."
+    },
+    "step3": {
+      "title": "Soumission de la demande",
+      "desc": "Nous soumettons votre demande officiellement et assurons le suivi."
+    },
+    "step4": {
+      "title": "Remise du visa",
+      "desc": "Une fois approuvé, vous récupérez votre visa et préparez votre voyage."
+    }
+  },
+  "countries": {
+    "title": "Destinations disponibles",
+    "subtitle": "Choisissez votre pays de destination pour voir tous les détails",
+    "view_all": "Voir tous les pays",
+    "gulf": "Pays du Golfe",
+    "other": "Autres destinations",
+    "processing_time": "Délai de traitement estimé",
+    "visa_types": "Types de visa disponibles",
+    "view_details": "Détails et documents",
+    "fee_from": "Frais à partir de",
+    "egp": "EGP"
+  },
+  "country_page": {
+    "back": "Retour à tous les pays",
+    "documents_title": "Documents requis",
+    "visa_types_title": "Types de visa",
+    "cta_title": "Prêt à démarrer votre procédure de visa ?",
+    "cta_desc": "Notre équipe vous contactera dans les prochaines heures.",
+    "cta_button": "Demander une consultation"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Notre équipe est prête à répondre à vos questions sur tout pays ou type de visa",
+    "name": "Nom complet",
+    "phone": "Numéro de mobile",
+    "email": "Adresse e-mail",
+    "country": "Pays d'intérêt",
+    "message": "Votre message",
+    "submit": "Envoyer la demande",
+    "whatsapp": "Discuter sur WhatsApp",
+    "telegram": "Nous écrire sur Telegram",
+    "email_label": "Écrivez-nous par e-mail",
+    "address_title": "Bureau principal",
+    "hours_title": "Heures d'ouverture",
+    "hours_value": "Sam - Jeu, 9h - 18h"
+  },
+  "apply": {
+    "title": "Commencer votre demande",
+    "subtitle": "Remplissez vos informations et joignez vos documents - notre équipe vous contactera dans les prochaines heures",
+    "name": "Nom complet",
+    "passport_number": "Numéro de passeport",
+    "country": "Pays",
+    "visa_type": "Type de visa",
+    "select_country_first": "Choisissez d'abord un pays",
+    "payment_receipt": "Reçu de paiement (facultatif)",
+    "documents_title": "Joindre des documents",
+    "document_type": "Type de document",
+    "document_file": "Fichier",
+    "add_document": "+ Ajouter un document",
+    "remove": "Supprimer",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "notes": "Notes",
+    "submit": "Envoyer la demande",
+    "success_title": "Votre demande a été reçue",
+    "success_message": "Notre équipe vous contactera dans les prochaines heures. Conservez ce numéro de commande pour suivre votre statut :",
+    "doc_types": {
+      "passport": "Passeport",
+      "degree": "Diplôme",
+      "personal_photo": "Photo personnelle",
+      "travel_ticket": "Billet de voyage",
+      "medical_certificate": "Certificat médical",
+      "hotel_booking": "Réservation d'hôtel",
+      "other": "Autre"
+    },
+    "keep_order_number": "Conservez ce numéro de commande pour suivre l'état de votre demande",
+    "copy_order_number": "Copier le numéro de commande",
+    "copied": "Copié ✓"
+  },
+  "track": {
+    "title": "Suivre votre demande",
+    "subtitle": "Entrez votre numéro de commande et votre numéro de passeport pour vérifier le statut",
+    "order_number": "Numéro de commande",
+    "passport_number": "Numéro de passeport",
+    "submit": "Vérifier",
+    "not_found": "Désolé, aucune demande trouvée avec ces informations. Vérifiez vos numéros.",
+    "result_title": "Résultat",
+    "status_label": "Statut",
+    "country_label": "Pays",
+    "visa_type_label": "Type de visa",
+    "date_label": "Date de la demande"
+  },
+  "application_status": {
+    "under_review": "En cours d'examen",
+    "approved_processing": "Demande approuvée, visa en cours de traitement",
+    "visa_ready": "Visa prêt",
+    "visa_cancelled": "Visa annulé",
+    "deleted": "Demande supprimée",
+    "other": "Autre statut"
+  },
+  "auth": {
+    "login_title": "Connexion",
+    "register_title": "Créer un nouveau compte",
+    "name": "Nom complet",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "password_confirmation": "Confirmer le mot de passe",
+    "remember": "Se souvenir de moi",
+    "submit_login": "Se connecter",
+    "submit_register": "Créer le compte",
+    "no_account": "Vous n'avez pas encore de compte ?",
+    "have_account": "Vous avez déjà un compte ?"
+  },
+  "footer": {
+    "about": "Poyekhali est une agence de voyage et de visas spécialisée dans les visas de travail et de visite pour le Golfe et d'autres pays, pour les citoyens égyptiens.",
+    "quick_links": "Liens rapides",
+    "destinations": "Destinations",
+    "contact_info": "Coordonnées",
+    "disclaimer": "Poyekhali est une agence de conseil et de facilitation de visas, et non une ambassade ou un consulat. L'approbation finale du visa revient toujours aux autorités officielles.",
+    "rights": "Tous droits réservés",
+    "available_countries": "Pays disponibles",
+    "available_visa_types": "Types de visa"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "ru": "Русский",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "user_menu": {
+    "admin_panel": "Panneau d'administration",
+    "dashboard": "Mon compte",
+    "my_applications": "Mes demandes",
+    "logout": "Déconnexion"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "Aucune notification pour le moment",
+    "mark_all_read": "Tout marquer comme lu"
+  },
+  "dashboard": {
+    "title": "Mon compte",
+    "subtitle": "Suivez vos demandes et notifications ici",
+    "my_applications": "Vos demandes",
+    "new_request": "+ Nouvelle demande",
+    "no_applications": "Vous n'avez encore soumis aucune demande"
+  },
+  "visa_types": {
+    "title": "Types de visa disponibles",
+    "subtitle": "Choisissez un type de visa et découvrez dans quels pays il est disponible",
+    "available_in": "Disponible dans",
+    "apply_now": "Postuler maintenant"
+  }
+}

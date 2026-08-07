@@ -6,8 +6,9 @@ interface Submission {
     id: number;
     name: string;
     phone: string;
+    email: string | null;
     country_interest: string | null;
-    document_path: string | null;
+    attachments_count: number;
     read_at: string | null;
     created_at: string;
 }
@@ -28,27 +29,26 @@ defineProps<{
                 <thead class="bg-paper text-xs text-ink/50">
                     <tr>
                         <th class="px-5 py-3 text-start font-medium">الاسم</th>
-                        <th class="px-5 py-3 text-start font-medium">الموبايل</th>
+                        <th class="px-5 py-3 text-start font-medium">الموبايل / الإيميل</th>
                         <th class="px-5 py-3 text-start font-medium">الدولة المهتم بيها</th>
-                        <th class="px-5 py-3 text-start font-medium">مستند مرفق</th>
+                        <th class="px-5 py-3 text-start font-medium">المرفقات</th>
                         <th class="px-5 py-3 text-start font-medium">التاريخ</th>
                         <th class="px-5 py-3"></th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-paper-dark">
-                    <tr
-                        v-for="s in submissions.data"
-                        :key="s.id"
-                        :class="!s.read_at ? 'bg-brass/5' : ''"
-                    >
+                    <tr v-for="s in submissions.data" :key="s.id" :class="!s.read_at ? 'bg-brass/5' : ''">
                         <td class="px-5 py-3 font-medium text-ink">
                             <span v-if="!s.read_at" class="me-2 inline-block h-2 w-2 rounded-full bg-brass"></span>
                             {{ s.name }}
                         </td>
-                        <td class="px-5 py-3 text-ink/60" dir="ltr">{{ s.phone }}</td>
+                        <td class="px-5 py-3 text-ink/60">
+                            <div dir="ltr">{{ s.phone }}</div>
+                            <div v-if="s.email" class="text-xs text-ink/40" dir="ltr">{{ s.email }}</div>
+                        </td>
                         <td class="px-5 py-3 text-ink/60">{{ s.country_interest ?? '—' }}</td>
                         <td class="px-5 py-3 text-ink/60">
-                            <span v-if="s.document_path" class="rounded-full bg-teal/10 px-2 py-1 text-xs text-teal">مرفق</span>
+                            <span v-if="s.attachments_count" class="rounded-full bg-teal/10 px-2 py-1 text-xs text-teal">{{ s.attachments_count }} ملف</span>
                             <span v-else class="text-ink/30">—</span>
                         </td>
                         <td class="px-5 py-3 text-ink/40">{{ new Date(s.created_at).toLocaleDateString('ar-EG') }}</td>

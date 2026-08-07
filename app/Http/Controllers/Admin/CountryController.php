@@ -38,9 +38,7 @@ class CountryController extends Controller
     {
         $country->load('visaTypes.documents');
 
-        return Inertia::render('admin/Countries/Edit', [
-            'country' => $country,
-        ]);
+        return Inertia::render('admin/Countries/Edit', ['country' => $country]);
     }
 
     public function update(Request $request, Country $country)
@@ -71,7 +69,6 @@ class CountryController extends Controller
             'name_ar' => ['required', 'string', 'max:255'],
             'name_en' => ['required', 'string', 'max:255'],
             'region' => ['required', Rule::in(['gulf', 'other'])],
-            'processing_time_ar' => ['required', 'string', 'max:255'],
             'processing_time_en' => ['required', 'string', 'max:255'],
             'order' => ['nullable', 'integer'],
             'is_active' => ['nullable', 'boolean'],
@@ -82,6 +79,8 @@ class CountryController extends Controller
             'visa_types.*.name_ar' => ['required', 'string', 'max:255'],
             'visa_types.*.name_en' => ['required', 'string', 'max:255'],
             'visa_types.*.fee' => ['required', 'integer', 'min:0'],
+            'visa_types.*.processing_time_ar' => ['nullable', 'string', 'max:255'],
+            'visa_types.*.is_active' => ['nullable', 'boolean'],
             'visa_types.*.documents' => ['array'],
             'visa_types.*.documents.*.text_ar' => ['required', 'string', 'max:500'],
             'visa_types.*.documents.*.text_en' => ['required', 'string', 'max:500'],
@@ -94,7 +93,6 @@ class CountryController extends Controller
                 'name_ar' => $validated['name_ar'],
                 'name_en' => $validated['name_en'],
                 'region' => $validated['region'],
-                'processing_time_ar' => $validated['processing_time_ar'],
                 'processing_time_en' => $validated['processing_time_en'],
                 'order' => $validated['order'] ?? 0,
                 'is_active' => $request->boolean('is_active', true),
@@ -103,13 +101,9 @@ class CountryController extends Controller
         ];
     }
 
-    /**
-     * بيمسح كل أنواع التأشيرات والمستندات القديمة ويعيد إنشاءها من الفورم -
-     * أبسط طريقة تضمن إن الترتيب والمحتوى يطابقوا بالظبط اللي في لوحة التحكم
-     */
     private function syncVisaTypes(Country $country, array $visaTypes): void
     {
-        $country->visaTypes()->delete(); // هيمسح المستندات المرتبطة تلقائيًا (cascadeOnDelete)
+        $country->visaTypes()->delete();
 
         foreach ($visaTypes as $i => $vt) {
             $created = $country->visaTypes()->create([
@@ -117,6 +111,8 @@ class CountryController extends Controller
                 'name_ar' => $vt['name_ar'],
                 'name_en' => $vt['name_en'],
                 'fee' => $vt['fee'],
+                'processing_time_ar' => $vt['processing_time_ar'] ?? null,
+                'is_active' => $vt['is_active'] ?? true,
                 'order' => $i,
             ]);
 
@@ -135,12 +131,9 @@ class CountryController extends Controller
         if (! $request->hasFile('image')) {
             return;
         }
-
         if ($country->image_path) {
             Storage::disk('public')->delete($country->image_path);
         }
-
-        $path = $request->file('image')->store('countries', 'public');
-        $country->update(['image_path' => $path]);
+        $country->update(['image_path' => $request->file('image')->store('countries', 'public')]);
     }
 }

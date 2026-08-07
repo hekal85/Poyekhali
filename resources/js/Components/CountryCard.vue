@@ -9,7 +9,7 @@ const props = defineProps<{ country: Country }>();
 const { t, locale } = useI18n();
 
 const cheapestFee = computed(() =>
-    Math.min(...props.country.visa_types.map((v) => v.fee)),
+    props.country.visa_types.length ? Math.min(...props.country.visa_types.map((v) => v.fee)) : 0,
 );
 </script>
 
@@ -18,7 +18,6 @@ const cheapestFee = computed(() =>
         :href="`/countries/${country.slug}`"
         class="group flex flex-col overflow-hidden rounded-2xl border border-paper-dark bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5"
     >
-        <!-- بانر: صورة مرفوعة من لوحة التحكم، أو نمط هندسي بديل لو مفيش صورة -->
         <div class="relative h-32 w-full overflow-hidden bg-ink">
             <img
                 v-if="country.image_url"
@@ -48,7 +47,7 @@ const cheapestFee = computed(() =>
             </div>
 
             <p class="mt-1 text-xs text-ink/50">
-                {{ t('countries.processing_time') }}: {{ locale === 'ar' ? country.processing_time.ar : country.processing_time.en }}
+                {{ t('countries.processing_time') }}: {{ country.processing_time_en }}
             </p>
 
             <div class="mt-auto flex items-center justify-between border-t border-paper-dark pt-4 mt-5">

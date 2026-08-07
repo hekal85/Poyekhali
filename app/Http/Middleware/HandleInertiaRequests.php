@@ -2,45 +2,59 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Country;
+use App\Models\UserNotification;
+use App\Models\VisaType;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
 {
-    /**
-     * The root template that's loaded on the first page visit.
-     *
-     * @see https://inertiajs.com/server-side-setup#root-template
-     *
-     * @var string
-     */
     protected $rootView = 'app';
 
-    /**
-     * Determines the current asset version.
-     *
-     * @see https://inertiajs.com/asset-versioning
-     */
     public function version(Request $request): ?string
     {
         return parent::version($request);
     }
 
     /**
-     * Define the props that are shared by default.
+     * بيانات مشتركة في كل صفحات الموقع (public + admin + عميل).
      *
-     * @see https://inertiajs.com/shared-data
-     *
-     * @return array<string, mixed>
+     * ملحوظة: لو عندك بالفعل ملف HandleInertiaRequests.php (غالبًا موجود لو مشروعك
+     * اتعمل بستارتر كيت Laravel الرسمي لـ Inertia+Vue)، متستبدلش الملف كله -
+     * بس ضيف مفتاحي 'footerCountries' و 'unreadNotificationsCount' جوه array الـ share بتاعك.
      */
     public function share(Request $request): array
     {
-        return [
-            ...parent::share($request),
-            'name' => config('app.name'),
+        $user = $request->user();
+
+        // 4 دول بالظبط في الفوتر، حسب طلبك - لو عايز تغيّرهم عدّل مصفوفة الـ slugs دي
+        $footerCountries = Country::where('is_active', true)
+            ->whereIn('slug', ['saudi-arabia', 'uae', 'qatar', 'kuwait'])
+            ->orderBy('order')
+            ->get(['id', 'slug', 'name_ar', 'name_en']);
+
+        // أنواع التأشيرات المتاحة (فريدة بالـ key) عشان عمود "أنواع التأشيرات" في الفوتر
+        $footerVisaTypes = VisaType::where('is_active', true)
+            ->whereHas('country', fn ($q) => $q->where('is_active', true))
+            ->get(['key', 'name_ar', 'name_en'])
+            ->unique('key')
+            ->values();
+
+        return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user ? [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'is_admin' => (bool) $user->is_admin,
+                ] : null,
             ],
-        ];
+            'footerCountries' => $footerCountries,
+            'footerVisaTypes' => $footerVisaTypes,
+            'unreadNotificationsCount' => $user
+                ? UserNotification::where('user_id', $user->id)->whereNull('read_at')->count()
+                : 0,
+        ]);
     }
 }

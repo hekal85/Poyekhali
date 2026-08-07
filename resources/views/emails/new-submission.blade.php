@@ -14,30 +14,24 @@
     <div class="card">
         <h2 style="color:#0F2A3D;">طلب تواصل جديد من موقع بيخالي</h2>
 
-        <div class="row">
-            <span class="label">الاسم</span>
-            {{ $submission->name }}
-        </div>
-        <div class="row">
-            <span class="label">رقم الموبايل</span>
-            {{ $submission->phone }}
-        </div>
+        <div class="row"><span class="label">الاسم</span>{{ $submission->name }}</div>
+        <div class="row"><span class="label">رقم الموبايل</span>{{ $submission->phone }}</div>
+        @if($submission->email)
+        <div class="row"><span class="label">الإيميل</span>{{ $submission->email }}</div>
+        @endif
         @if($submission->country_interest)
-        <div class="row">
-            <span class="label">الدولة المهتم بيها</span>
-            {{ $submission->country_interest }}
-        </div>
+        <div class="row"><span class="label">الدولة المهتم بيها</span>{{ $submission->country_interest }}</div>
         @endif
         @if($submission->message)
-        <div class="row">
-            <span class="label">الرسالة</span>
-            {{ $submission->message }}
-        </div>
+        <div class="row"><span class="label">الرسالة</span>{{ $submission->message }}</div>
         @endif
-        @if($submission->document_path)
+        @if($submission->attachments->count())
         <div class="row">
-            <span class="label">مرفق مستند</span>
-            {{ $submission->document_name }} (مرفق مع الإيميل ده)
+            <span class="label">المرفقات ({{ $submission->attachments->count() }})</span>
+            @foreach($submission->attachments as $a)
+                {{ $a->original_name }}@if(!$loop->last), @endif
+            @endforeach
+            (مرفقين مع الإيميل ده)
         </div>
         @endif
     </div>

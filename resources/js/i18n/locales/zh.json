@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "home": "首页",
+    "countries": "国家与签证",
+    "process": "办理流程",
+    "contact": "联系我们",
+    "apply": "开始申请",
+    "login": "登录",
+    "register": "注册账号",
+    "track": "查询申请状态"
+  },
+  "hero": {
+    "eyebrow": "值得信赖的埃及人签证服务平台",
+    "title": "您的海湾签证，全程为您办理",
+    "subtitle": "Poyekhali 帮助您准备前往海湾国家及其他目的地的工作签证与访问签证申请——从第一次咨询到拿到签证。",
+    "select_label": "选择您的目的地",
+    "select_placeholder": "选择国家...",
+    "cta_check": "查看所需材料",
+    "cta_call": "联系顾问",
+    "stat_countries": "国家",
+    "stat_clients": "服务客户",
+    "stat_years": "年经验",
+    "stat_applications": "已办理签证"
+  },
+  "trust": {
+    "title": "为什么选择 Poyekhali",
+    "licensed": {
+      "title": "持牌机构",
+      "desc": "官方认证，专门处理签证与工作文件申请。"
+    },
+    "transparent": {
+      "title": "费用透明",
+      "desc": "从第一天起您就清楚知道申请的全部费用，没有隐藏收费。"
+    },
+    "support": {
+      "title": "实时跟踪",
+      "desc": "随时在查询页面追踪您的申请状态。"
+    },
+    "fast": {
+      "title": "办理迅速",
+      "desc": "与担保机构的直接合作关系缩短了办理时间。"
+    }
+  },
+  "process": {
+    "title": "如何申请您的签证",
+    "subtitle": "从咨询到拿到签证，只需简单4步",
+    "step1": {
+      "title": "免费咨询",
+      "desc": "我们了解您的情况，确定最合适的签证类型。"
+    },
+    "step2": {
+      "title": "材料准备",
+      "desc": "我们提供精确的材料清单，协助您准备每一份文件。"
+    },
+    "step3": {
+      "title": "提交申请",
+      "desc": "我们正式提交您的申请，并持续跟进。"
+    },
+    "step4": {
+      "title": "领取签证",
+      "desc": "获批后，您领取签证并开始安排行程。"
+    }
+  },
+  "countries": {
+    "title": "可申请的目的地",
+    "subtitle": "选择您的目的地国家，查看完整详情",
+    "view_all": "查看所有国家",
+    "gulf": "海湾国家",
+    "other": "其他目的地",
+    "processing_time": "预计办理时长",
+    "visa_types": "可选签证类型",
+    "view_details": "详情与材料",
+    "fee_from": "费用起价",
+    "egp": "埃及镑"
+  },
+  "country_page": {
+    "back": "返回所有国家",
+    "documents_title": "所需材料",
+    "visa_types_title": "签证类型",
+    "cta_title": "准备好开始您的签证办理了吗？",
+    "cta_desc": "我们的团队将在数小时内与您联系，安排后续步骤。",
+    "cta_button": "立即申请咨询"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "我们的团队随时准备解答您关于任何国家或签证类型的问题",
+    "name": "姓名",
+    "phone": "手机号码",
+    "email": "电子邮箱",
+    "country": "感兴趣的国家",
+    "message": "您的留言",
+    "submit": "发送请求",
+    "whatsapp": "通过 WhatsApp 联系",
+    "telegram": "通过 Telegram 联系",
+    "email_label": "发送邮件给我们",
+    "address_title": "总部地址",
+    "hours_title": "工作时间",
+    "hours_value": "周六至周四，上午9点至下午6点"
+  },
+  "apply": {
+    "title": "开始申请",
+    "subtitle": "填写您的信息并上传材料——我们的团队将在数小时内与您联系",
+    "name": "姓名",
+    "passport_number": "护照号码",
+    "country": "国家",
+    "visa_type": "签证类型",
+    "select_country_first": "请先选择国家",
+    "payment_receipt": "付款凭证图片（可选）",
+    "documents_title": "上传材料",
+    "document_type": "材料类型",
+    "document_file": "文件",
+    "add_document": "+ 添加材料",
+    "remove": "删除",
+    "address": "地址",
+    "phone": "电话",
+    "email": "电子邮箱",
+    "notes": "备注",
+    "submit": "提交申请",
+    "success_title": "您的申请已收到",
+    "success_message": "我们的团队将在数小时内与您联系。请保留此订单号以便查询状态：",
+    "doc_types": {
+      "passport": "护照",
+      "degree": "毕业证书",
+      "personal_photo": "个人照片",
+      "travel_ticket": "机票",
+      "medical_certificate": "体检证明",
+      "hotel_booking": "酒店预订单",
+      "other": "其他"
+    },
+    "keep_order_number": "请保存此订单号以跟踪您的申请状态",
+    "copy_order_number": "复制订单号",
+    "copied": "已复制 ✓"
+  },
+  "track": {
+    "title": "查询申请状态",
+    "subtitle": "输入订单号和护照号码以查询状态",
+    "order_number": "订单号",
+    "passport_number": "护照号码",
+    "submit": "查询",
+    "not_found": "抱歉，未找到匹配的申请记录，请核对您的订单号和护照号码。",
+    "result_title": "查询结果",
+    "status_label": "状态",
+    "country_label": "国家",
+    "visa_type_label": "签证类型",
+    "date_label": "申请日期"
+  },
+  "application_status": {
+    "under_review": "审核中",
+    "approved_processing": "申请已批准，签证办理中",
+    "visa_ready": "签证已办好",
+    "visa_cancelled": "签证已取消",
+    "deleted": "申请已删除",
+    "other": "其他状态"
+  },
+  "auth": {
+    "login_title": "登录",
+    "register_title": "创建新账号",
+    "name": "姓名",
+    "email": "电子邮箱",
+    "password": "密码",
+    "password_confirmation": "确认密码",
+    "remember": "记住我",
+    "submit_login": "登录",
+    "submit_register": "创建账号",
+    "no_account": "还没有账号？",
+    "have_account": "已有账号？"
+  },
+  "footer": {
+    "about": "Poyekhali 是一家专注于为埃及公民办理海湾国家及其他目的地工作签证与访问签证的旅游签证咨询机构。",
+    "quick_links": "快速链接",
+    "destinations": "目的地",
+    "contact_info": "联系方式",
+    "disclaimer": "Poyekhali 是签证咨询与代办机构，并非使领馆。签证的最终批准权始终归官方机构所有。",
+    "rights": "版权所有",
+    "available_countries": "可选国家",
+    "available_visa_types": "签证类型"
+  },
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "ru": "Русский",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "user_menu": {
+    "admin_panel": "管理面板",
+    "dashboard": "我的账户",
+    "my_applications": "我的申请",
+    "logout": "退出登录"
+  },
+  "notifications": {
+    "title": "通知",
+    "empty": "暂无通知",
+    "mark_all_read": "全部标记为已读"
+  },
+  "dashboard": {
+    "title": "我的账户",
+    "subtitle": "在此跟踪您的申请和通知",
+    "my_applications": "您的申请",
+    "new_request": "+ 新申请",
+    "no_applications": "您还没有提交任何申请"
+  },
+  "visa_types": {
+    "title": "可用签证类型",
+    "subtitle": "选择签证类型，查看哪些国家提供该签证",
+    "available_in": "可用于",
+    "apply_now": "立即申请"
+  }
+}

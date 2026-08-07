@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\Country;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -12,22 +13,15 @@ class SiteController extends Controller
     public function home(): Response
     {
         return Inertia::render('Home', [
-            'countries' => Country::where('is_active', true)
-                ->orderBy('order')
-                ->get()
-                ->map->toFrontend()
-                ->values(),
+            'countries' => $this->activeCountries(),
+            'stats' => $this->liveStats(),
         ]);
     }
 
     public function countriesIndex(): Response
     {
         return Inertia::render('Countries/Index', [
-            'countries' => Country::where('is_active', true)
-                ->orderBy('order')
-                ->get()
-                ->map->toFrontend()
-                ->values(),
+            'countries' => $this->activeCountries(),
         ]);
     }
 
@@ -43,18 +37,42 @@ class SiteController extends Controller
     public function contact(): Response
     {
         return Inertia::render('Contact', [
-            'countries' => Country::where('is_active', true)->orderBy('order')->get()->map->toFrontend()->values(),
+            'countries' => $this->activeCountries(),
         ]);
     }
 
-    public function setLocale(Request $request)
+    public function apply(): Response
     {
-        $locale = $request->input('locale', 'ar');
+        return Inertia::render('Apply', [
+            'countries' => $this->activeCountries(),
+        ]);
+    }
 
-        abort_unless(in_array($locale, ['ar', 'en']), 404);
+    private function activeCountries()
+    {
+        return Country::where('is_active', true)
+            ->orderBy('order')
+            ->get()
+            ->map->toFrontend()
+            ->values();
+    }
 
-        session(['locale' => $locale]);
+    /**
+     * إحصائيات الهيرو - محسوبة مباشرة (live) من قاعدة البيانات في كل تحميل صفحة،
+     * بدل جدول إحصائيات منفصل محتاج تحديث يدوي. كده الرقم مظبوط 100% دايمًا
+     * ومفيش احتمال إنه "يفضل قديم" لو حد نسي يحدّث جدول لوحده.
+     */
+    private function liveStats(): array
+    {
+        $startDate = '2023-01-01';
 
-        return back();
+        return [
+            'countries' => Country::where('is_active', true)->count(),
+            // "طلب اتنفذ" = طلبات وصلت لحالة "التأشيرة جاهزة" فعليًا (مؤشر ثقة حقيقي أدق
+            // من مجرد عدد الطلبات المُرسلة اللي ممكن يكون فيها ملغي أو لسه تحت الدراسة)
+            'applications' => Application::where('status', 'visa_ready')->count(),
+            'clients' => User::where('is_admin', false)->count(),
+            'years' => max(1, now()->diffInYears($startDate)),
+        ];
     }
 }

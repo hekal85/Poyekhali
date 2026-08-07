@@ -7,6 +7,7 @@ const links = [
     { href: '/admin', label: 'الرئيسية', icon: 'home' },
     { href: '/admin/countries', label: 'الدول والتأشيرات', icon: 'globe' },
     { href: '/admin/submissions', label: 'رسائل الزوار', icon: 'inbox' },
+    { href: '/admin/applications', label: 'طلبات التأشيرات', icon: 'file' },
 ];
 
 function logout() {

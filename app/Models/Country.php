@@ -12,23 +12,21 @@ class Country extends Model
 
     protected $fillable = [
         'slug', 'flag', 'name_ar', 'name_en', 'region',
-        'processing_time_ar', 'processing_time_en',
-        'image_path', 'order', 'is_active',
+        'processing_time_en', 'image_path', 'order', 'is_active',
     ];
 
-    protected $casts = [
-        'is_active' => 'boolean',
-    ];
+    protected $casts = ['is_active' => 'boolean'];
 
     public function visaTypes(): HasMany
     {
         return $this->hasMany(VisaType::class)->orderBy('order');
     }
 
-    /**
-     * يحوّل السجل لشكل جاهز للواجهة الأمامية (name.ar / name.en ...)،
-     * وكل نوع تأشيرة بياخد مستنداته الخاصة بيه (visa_types[].documents)
-     */
+    public function activeVisaTypes(): HasMany
+    {
+        return $this->visaTypes()->where('is_active', true);
+    }
+
     public function toFrontend(): array
     {
         return [
@@ -37,12 +35,14 @@ class Country extends Model
             'flag' => $this->flag,
             'name' => ['ar' => $this->name_ar, 'en' => $this->name_en],
             'region' => $this->region,
-            'processing_time' => ['ar' => $this->processing_time_ar, 'en' => $this->processing_time_en],
+            'processing_time_en' => $this->processing_time_en,
             'image_url' => $this->image_path ? asset('storage/' . $this->image_path) : null,
-            'visa_types' => $this->visaTypes->map(fn (VisaType $v) => [
+            'visa_types' => $this->activeVisaTypes->map(fn (VisaType $v) => [
+                'id' => $v->id,
                 'key' => $v->key,
                 'name' => ['ar' => $v->name_ar, 'en' => $v->name_en],
                 'fee' => $v->fee,
+                'processing_time_ar' => $v->processing_time_ar,
                 'documents' => $v->documents->map(fn (VisaDocument $d) => [
                     'ar' => $d->text_ar,
                     'en' => $d->text_en,

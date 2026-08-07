@@ -6,7 +6,7 @@ import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { i18n, isRtl } from './i18n';
 
-const appName = import.meta.env.VITE_APP_NAME || 'بيخالي - Poyekhali';
+const appName = import.meta.env.VITE_APP_NAME || 'Поехали - Poyekhali';
 
 // اضبط اتجاه الصفحة (rtl/ltr) ولغة <html> قبل ما فيو يركّب أي حاجة،
 // عشان منمنعش وميض (flash) لاتجاه غلط أول ما الصفحة تفتح

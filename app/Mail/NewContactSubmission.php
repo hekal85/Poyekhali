@@ -21,9 +21,10 @@ class NewContactSubmission extends Mailable
             ->view('emails.new-submission')
             ->with(['submission' => $this->submission]);
 
-        if ($this->submission->document_path) {
-            $mail->attach(storage_path('app/public/' . $this->submission->document_path), [
-                'as' => $this->submission->document_name ?? 'document',
+        // يرفق كل ملفات الرسالة (ممكن يكون أكتر من ملف دلوقتي) بدل الملف الواحد القديم
+        foreach ($this->submission->attachments as $attachment) {
+            $mail->attach(storage_path('app/public/' . $attachment->path), [
+                'as' => $attachment->original_name,
             ]);
         }
 

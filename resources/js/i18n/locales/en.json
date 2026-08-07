@@ -4,7 +4,10 @@
     "countries": "Countries & Visas",
     "process": "How It Works",
     "contact": "Contact",
-    "apply": "Start Your Application"
+    "apply": "Start Your Application",
+    "login": "Log In",
+    "register": "Sign Up",
+    "track": "Track Your Application"
   },
   "hero": {
     "eyebrow": "Trusted visa gateway for Egyptians",
@@ -16,22 +19,47 @@
     "cta_call": "Talk to an advisor",
     "stat_countries": "Countries",
     "stat_clients": "Clients served",
-    "stat_years": "Years of experience"
+    "stat_years": "Years of experience",
+    "stat_applications": "Visas issued"
   },
   "trust": {
     "title": "Why Poyekhali",
-    "licensed": { "title": "Licensed office", "desc": "Officially accredited to handle visa and labor-file applications." },
-    "transparent": { "title": "Transparent fees", "desc": "You know the full cost of your application from day one, no surprises." },
-    "support": { "title": "Real-time tracking", "desc": "Follow your application status from your account on the website." },
-    "fast": { "title": "Fast turnaround", "desc": "Direct relationships with sponsoring entities shorten processing time." }
+    "licensed": {
+      "title": "Licensed office",
+      "desc": "Officially accredited to handle visa and labor-file applications."
+    },
+    "transparent": {
+      "title": "Transparent fees",
+      "desc": "You know the full cost of your application from day one, no surprises."
+    },
+    "support": {
+      "title": "Real-time tracking",
+      "desc": "Follow your application status anytime from the tracking page."
+    },
+    "fast": {
+      "title": "Fast turnaround",
+      "desc": "Direct relationships with sponsoring entities shorten processing time."
+    }
   },
   "process": {
     "title": "How to apply for your visa",
     "subtitle": "4 simple steps, from consultation to visa in hand",
-    "step1": { "title": "Free consultation", "desc": "We review your situation and identify the right visa type for you." },
-    "step2": { "title": "Document preparation", "desc": "We send an exact checklist and help you prepare every document." },
-    "step3": { "title": "Application submission", "desc": "We submit your application officially and follow up continuously." },
-    "step4": { "title": "Visa collection", "desc": "Once approved, you collect your visa and start your travel arrangements." }
+    "step1": {
+      "title": "Free consultation",
+      "desc": "We review your situation and identify the right visa type for you."
+    },
+    "step2": {
+      "title": "Document preparation",
+      "desc": "We send an exact checklist and help you prepare every document."
+    },
+    "step3": {
+      "title": "Application submission",
+      "desc": "We submit your application officially and follow up continuously."
+    },
+    "step4": {
+      "title": "Visa collection",
+      "desc": "Once approved, you collect your visa and start your travel arrangements."
+    }
   },
   "countries": {
     "title": "Available destinations",
@@ -58,13 +86,84 @@
     "subtitle": "Our team is ready to answer questions about any country or visa type",
     "name": "Full name",
     "phone": "Mobile number",
+    "email": "Email address",
     "country": "Country of interest",
     "message": "Your message",
     "submit": "Send request",
     "whatsapp": "Chat on WhatsApp",
+    "telegram": "Message us on Telegram",
+    "email_label": "Email us",
     "address_title": "Main office",
     "hours_title": "Working hours",
     "hours_value": "Sat - Thu, 9 AM - 6 PM"
+  },
+  "apply": {
+    "title": "Start Your Application",
+    "subtitle": "Fill in your details and attach your documents - our team will contact you within hours",
+    "name": "Full name",
+    "passport_number": "Passport number",
+    "country": "Country",
+    "visa_type": "Visa type",
+    "select_country_first": "Select a country first",
+    "payment_receipt": "Payment receipt image (optional)",
+    "documents_title": "Attach documents",
+    "document_type": "Document type",
+    "document_file": "File",
+    "add_document": "+ Add document",
+    "remove": "Remove",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "notes": "Notes",
+    "submit": "Submit application",
+    "success_title": "Your application was received",
+    "success_message": "Our team will contact you within hours. Keep this order number to track your status:",
+    "doc_types": {
+      "passport": "Passport",
+      "degree": "Degree certificate",
+      "personal_photo": "Personal photo",
+      "travel_ticket": "Travel ticket",
+      "medical_certificate": "Medical certificate",
+      "hotel_booking": "Hotel booking",
+      "other": "Other"
+    },
+    "keep_order_number": "Keep this order number to track your application status",
+    "copy_order_number": "Copy order number",
+    "copied": "Copied ✓"
+  },
+  "track": {
+    "title": "Track Your Application",
+    "subtitle": "Enter your order number and passport number to check your status",
+    "order_number": "Order number",
+    "passport_number": "Passport number",
+    "submit": "Check status",
+    "not_found": "Sorry, we couldn't find an application with these details. Please check your order and passport numbers.",
+    "result_title": "Result",
+    "status_label": "Status",
+    "country_label": "Country",
+    "visa_type_label": "Visa type",
+    "date_label": "Application date"
+  },
+  "application_status": {
+    "under_review": "Under review",
+    "approved_processing": "Approved - visa processing in progress",
+    "visa_ready": "Visa ready",
+    "visa_cancelled": "Visa cancelled",
+    "deleted": "Application deleted",
+    "other": "Other status"
+  },
+  "auth": {
+    "login_title": "Log in",
+    "register_title": "Create a new account",
+    "name": "Full name",
+    "email": "Email address",
+    "password": "Password",
+    "password_confirmation": "Confirm password",
+    "remember": "Remember me",
+    "submit_login": "Log in",
+    "submit_register": "Create account",
+    "no_account": "Don't have an account yet?",
+    "have_account": "Already have an account?"
   },
   "footer": {
     "about": "Poyekhali is a travel and visa consultancy specialized in work and visit visas for the Gulf and select other countries, for Egyptian citizens.",
@@ -72,7 +171,42 @@
     "destinations": "Destinations",
     "contact_info": "Contact info",
     "disclaimer": "Poyekhali is a visa consultancy and facilitation office, not an embassy or consulate. Final visa approval always rests with the official authorities.",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "available_countries": "Available Countries",
+    "available_visa_types": "Visa Types"
   },
-  "lang": { "ar": "العربية", "en": "English" }
+  "lang": {
+    "ar": "العربية",
+    "en": "English",
+    "ru": "Русский",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "es": "Español",
+    "zh": "中文"
+  },
+  "user_menu": {
+    "admin_panel": "Admin Panel",
+    "dashboard": "My Account",
+    "my_applications": "My Applications",
+    "logout": "Log out"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications yet",
+    "mark_all_read": "Mark all as read"
+  },
+  "dashboard": {
+    "title": "My Account",
+    "subtitle": "Track your applications and notifications here",
+    "my_applications": "Your Applications",
+    "new_request": "+ New Request",
+    "no_applications": "You haven't submitted any applications yet"
+  },
+  "visa_types": {
+    "title": "Available Visa Types",
+    "subtitle": "Choose a visa type and see which countries offer it",
+    "available_in": "Available in",
+    "apply_now": "Apply Now"
+  }
 }
